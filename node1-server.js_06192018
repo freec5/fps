@@ -1,0 +1,102 @@
+const express = require('express');
+const bodyParser = require('body-parser');
+const path = require('path');
+const bcrypt = require('bcrypt');
+const cors = require('cors')
+
+const http = require('http');
+
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://fps360:fps360@ds149309.mlab.com:49309/fps360');
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  // we're connected!
+});
+
+var User = require('./models/user');
+
+const app = express();
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
+var corsOptions = {
+  origin: 'http://node1.christopher-freeman.com',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+app.use(cors(corsOptions))
+
+/*app.all("/*", function(req, res, next){
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+  next();
+});*/
+
+
+
+
+
+app.get('/api/ping', cors(corsOptions), (req, res) => {
+  //res.json({ id: 1 });
+  console.log('ping me');
+  res.send('String1');
+});
+
+app.post('/api/post', cors(corsOptions), function (req, res) {
+  res.send(req.body)
+  console.log('post /ping');
+})
+
+
+
+
+
+app.get('/api', (req, res) => {
+  //res.sendFile(path.join(__dirname + '/src/index.html'));
+  res.send('yeoooerrr');
+  console.log('yeoor - index.html');
+  res.send('yeooerrr');
+});
+
+app.get('/', (req, res) => {
+  console.log('app.get / - success');
+});
+
+/*app.route('/').get((req, res) => {
+  console.log('GET / - success');
+});*/
+
+app.route('/api/get').get((req, res) => {
+  console.log('/api/get uuu diggg');
+  res.send('String1');
+});
+
+
+
+app.route('/api/user').get((req, res) => {
+  console.log('api/user');
+});
+
+
+const server = http.createServer((req, res) => {
+  //res.writeHead(200, { 'Content-Type': 'text/html' });
+  console.log('http works!');
+
+  handler = router.route(req);
+  handler.process(req, res);
+
+//  res.sendFile(path.join(__dirname + '/src/index.html'));
+});
+
+/*app.listen(9001, (req, res) => {
+  console.log('app.listen(9001)');
+});*/
+
+server.listen(9001, (req, res) => {
+  console.log('server.listen(9001)');
+});
+
+//console.log("Server is listening on 9001.");
+
