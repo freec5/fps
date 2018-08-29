@@ -17,6 +17,10 @@ import { ContactUsComponent } from 	'./contact-us/contact-us.component';
 import { SplashComponent } from './splash/splash.component';
 
 import { ApiService } from './api.service';
+import { ImagesService } from './_services/images.service';
+
+
+import { ImagesComponent } from './images/images.component';
 
 
 @NgModule({
@@ -30,7 +34,8 @@ import { ApiService } from './api.service';
     AboutUsComponent,
     ServicesComponent,
     ContactUsComponent,
-    SplashComponent
+    SplashComponent,
+    ImagesComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +44,7 @@ import { ApiService } from './api.service';
     HttpClientModule,
     FormsModule
   ],
-  providers: [ApiService],
+  providers: [ApiService, ImagesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,12 @@
+<p>
+  images works!
+</p>
+
+count: {{ images.length }}
+
+<div *ngFor="let artist of images | slice:0:1" id="photos">
+  {{ artist.Artist }}
+  <div *ngFor="let image of artist.images; let i = index">
+    <img src="{{image}}" class="imageId">
+  </div> 
+</div>

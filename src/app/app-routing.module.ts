@@ -7,6 +7,8 @@ import { AboutUsComponent }	from './about-us/about-us.component';
 import { ServicesComponent }	from './services/services.component';
 import { ContactUsComponent }	from './contact-us/contact-us.component';
 
+import { ImagesComponent }	from './images/images.component';
+
 import { AdminComponent } 	from './admin/admin.component';
 
 const routes: Routes = [
@@ -17,6 +19,8 @@ const routes: Routes = [
 	{ path: 'about-us', component: AboutUsComponent },
 	{ path: 'services', component: ServicesComponent, pathMatch: 'full' },
 	{ path: 'contact-us', component: ContactUsComponent },
+
+	{ path: 'images', component: ImagesComponent },
 
 	{ path: 'admin', component: AdminComponent }
 

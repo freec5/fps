@@ -1,0 +1,18 @@
+#photos {
+  /* Prevent vertical gaps */
+  /*line-height: 0;*/
+  overflow: hidden;
+  -webkit-column-count: 5;
+  -webkit-column-gap:   0px;
+  -moz-column-count:    5;
+  -moz-column-gap:      0px;
+  column-count:         5;
+  column-gap:           0px;  
+}
+
+.imageId {
+ /* width: 250px; */
+  width: 100% !important;
+  height: auto !important;
+  padding: 5px;
+}
